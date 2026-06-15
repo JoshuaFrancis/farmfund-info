@@ -52,8 +52,7 @@ a { color: inherit; text-decoration: none; }
   object-fit: cover;
   border-radius: 14px;
   display: block;
-  /* placeholder — replace with aerial farmland photo */
-  background: linear-gradient(160deg, #7A9A50 0%, #5A7A3A 40%, #3B5A20 100%);
+background: linear-gradient(160deg, #7A9A50 0%, #5A7A3A 40%, #3B5A20 100%);
 }
 .hero__img-tag { position: absolute; bottom: 1.25rem; left: 1.25rem; background: rgba(59,42,26,.85); backdrop-filter: blur(8px); color: #fff; font-size: .75rem; font-weight: 500; padding: .4rem .85rem; border-radius: 4px; letter-spacing: .04em; }
 .hero__overline { font-size: .72rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; color: var(--harvest); margin-bottom: 1.25rem; }
@@ -149,3 +148,70 @@ a { color: inherit; text-decoration: none; }
 .faq__item { padding: 1.5rem 0; border-bottom: 1px solid var(--rule); }
 .faq__q { font-family: var(--ff-serif); font-size: 1.05rem; font-weight: 700; color: var(--white); margin-bottom: .5rem; }
 .faq__a { font-size: .9rem; line-height: 1.75; color: var(--ash); }
+
+/* --- Mobile overflow hardening --- */
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  overscroll-behavior-x: none;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+main,
+section,
+header,
+footer,
+nav,
+form,
+fieldset,
+[class*="__inner"],
+[class*="__grid"],
+[class*="__row"],
+[class*="__cols"],
+[class*="__card"],
+[class*="__item"] {
+  min-width: 0;
+}
+
+input,
+textarea,
+select,
+button {
+  max-width: 100%;
+  min-width: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+li,
+span {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+  .btn,
+  .btn-primary,
+  .btn-ghost,
+  [class*="btn"],
+  [class*="button"] {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
